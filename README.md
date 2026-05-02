@@ -13,6 +13,7 @@ Published on npm
 https://www.npmjs.com/~simplehissa
 
 Open Source on Github:
+https://github.com/Simple46/simple-form-react
 
 
 
@@ -26,4 +27,4 @@ npm install simple-react-form
 
 Still improvin it - Contributions are highly welcome
 
- # #reactjs #opensource #javascript #webdevelopment #frontend
+#reactjs #opensource #javascript #webdevelopment #frontend
