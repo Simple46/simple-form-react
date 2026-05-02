@@ -27,7 +27,52 @@ over the past few days, i built a lightweight form engine which is inspired by f
 use `npm install simple-react-form` to install 
 
 ## Usage
-```   jss ```   
+```jsx
+import React, { useState } from "react";
+ 
+import { useForm, Input, Button, ErrorText } from "simple-form-react";
+
+const App = () => {
+  const [submittedForm, setSubmittedForm] = useState("");
+  const { register, handleSubmit, errors } = useForm({
+    initialValues: {
+      email: "",
+    },
+    validate: (values) => {
+      const errors = {};
+      if (!values.email.includes("@")) {
+        errors.email = "Invalid email";
+      }
+      return errors;
+    },
+    onSubmit: (data) => {
+      setSubmittedForm(data.email);
+      console.log(data);
+    },
+  });
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        {submittedForm && (
+          <p className="mb-3 text-green-600"> You entered {submittedForm}</p>
+        )}
+        <Input
+          {...register("email")}
+          placeholder="email"
+          className="rounded-lg mt-2 mx-2"
+        />
+        {errors.email && <ErrorText>{errors.email}</ErrorText>}
+        <Button type="submit" className="bg-blue-300 border-r-emerald-200">
+          Submit
+        </Button>
+      </form>
+
+    </div>
+  );
+};
+
+export default App
+```   
 
 > Still improvin it - Contributions are highly welcome
 
